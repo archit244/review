@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmileCare Reviews</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <img
+            src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1200&auto=format&fit=crop"
+            alt="Dental Clinic"
+        >
+    </div>
+
+    <div class="right">
+
+    <div class="card">
+
+    <div id="ratingView">
+
+        <div class="badge">
+            SmileCare Dental Clinic
+        </div>
+
+        <h1>
+            How Did We Do?
+        </h1>
+
+        <p class="subtitle">
+            Your feedback helps us improve and provide a better experience for every patient.
+        </p>
+
+        <div class="stars">
+
+            <span class="star" data-rating="1">★</span>
+            <span class="star" data-rating="2">★</span>
+            <span class="star" data-rating="3">★</span>
+            <span class="star" data-rating="4">★</span>
+            <span class="star" data-rating="5">★</span>
+
+        </div>
+
+    </div>
+
+
+    <div id="feedbackBox">
+
+        <h2>
+            We're Sorry 😔
+        </h2>
+
+        <p class="feedback-text">
+            Help us improve your next visit.
+        </p>
+
+        <textarea
+            placeholder="Tell us about your experience..."
+        ></textarea>
+
+        <button onclick="submitFeedback()">
+            Submit Feedback
+        </button>
+
+    </div>
+
+
+    <div class="success" id="successMsg">
+        Thank you for your feedback ❤️
+    </div>
+
+</div>
+
+    </div>
+
+</div>
+
+<script>
+
+const stars = document.querySelectorAll(".star");
+
+stars.forEach(star => {
+
+    star.addEventListener("click", () => {
+
+        const rating = parseInt(star.dataset.rating);
+
+        stars.forEach(s => {
+            s.classList.remove("active");
+        });
+
+        for(let i = 0; i < rating; i++){
+            stars[i].classList.add("active");
+        }
+
+        if(rating >= 4){
+
+            window.location.href =
+            "https://www.google.com";
+
+        }else{
+
+            document.getElementById("ratingView").style.display = "none";
+
+            document.getElementById("feedbackBox").style.display = "block";
+
+        }
+
+    });
+
+});
+
+function submitFeedback(){
+
+    document.getElementById("feedbackBox").style.display = "none";
+
+    document.getElementById("successMsg").style.display = "block";
+
+}
+
+</script>
+</body>
+</html>
